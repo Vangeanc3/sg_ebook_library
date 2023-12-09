@@ -31,10 +31,7 @@ class _NewEntryState extends State<NewEntry> {
       child: Container(
         decoration: AppBackgroundProperties.boxDecoration,
         child: Scaffold(
-          backgroundColor: Colors.transparent,
-          appBar: AppBar(
-            backgroundColor: AppColors.black,
-          ),
+          appBar: AppBar(),
           body: SingleChildScrollView(
             child: Column(
               children: <Widget>[

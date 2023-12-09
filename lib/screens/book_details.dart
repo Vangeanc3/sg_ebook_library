@@ -28,7 +28,7 @@ class _BookDetailsState extends State<BookDetails> {
       child: Container(
         decoration: AppBackgroundProperties.boxDecoration,
         child: Scaffold(
-          backgroundColor: Colors.transparent,
+          appBar: AppBar(),
           body: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 42.0),
             child: SingleChildScrollView(

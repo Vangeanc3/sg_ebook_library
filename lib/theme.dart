@@ -49,12 +49,12 @@ abstract class SecondaryButtonProperties {
   static TextStyle textStyle = TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.w600,
-    color: AppColors.lightPink,
+    color: AppColors.darkPurple,
   );
-  static Color iconColor = AppColors.lightPink;
+  static Color iconColor = AppColors.darkPurple;
   static BoxDecoration boxDecoration = BoxDecoration(
       borderRadius: BorderRadius.circular(30),
-      border: Border.all(color: AppColors.lightPink));
+      border: Border.all(color: AppColors.darkPurple));
 }
 
 abstract class FloatingButtonProperties {
@@ -89,7 +89,7 @@ abstract class ModalDecorationProperties {
   static TextStyle bookTitle = const TextStyle(fontSize: 22);
   static TextStyle bookAuthor = TextStyle(
     fontSize: 16,
-    color: AppColors.lightPink,
+    color: AppColors.darkPurple,
   );
   static RoundedRectangleBorder modalBorder = RoundedRectangleBorder(
     borderRadius: BorderRadius.circular(30),
@@ -112,7 +112,7 @@ abstract class DisplayTextProperties {
 abstract class EntryDecorationProperties {
   static TextStyle displayText = const TextStyle(fontSize: 16);
   static TextStyle authorText =
-      TextStyle(fontWeight: FontWeight.w500, color: AppColors.lightPink);
+      TextStyle(fontWeight: FontWeight.w500, color: AppColors.darkPurple);
 }
 
 abstract class InputDecorationProperties {

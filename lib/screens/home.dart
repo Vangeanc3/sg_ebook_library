@@ -30,7 +30,7 @@ class _HomeState extends State<Home> {
         child: Container(
       decoration: AppBackgroundProperties.boxDecoration,
       child: Scaffold(
-        // appBar: AppBar(),
+        appBar: AppBar(),
         body: Center(
           child: FutureBuilder(
             future: bookController.getBooks(),
@@ -81,7 +81,7 @@ class _FilledHomeState extends State<_FilledHome> {
             slivers: <Widget>[
               const SliverToBoxAdapter(
                 child: Padding(
-                  padding: EdgeInsets.fromLTRB(0.0, 48.0, 0.0, 8.0),
+                  padding: EdgeInsets.fromLTRB(0.0, 16.0, 0.0, 8.0),
                   child: DisplayText("Livros"),
                 ),
               ),
@@ -127,7 +127,7 @@ class _FilledHomeState extends State<_FilledHome> {
           ),
         ),
         Positioned(
-          top: MediaQuery.of(context).size.height - 125,
+          top: MediaQuery.of(context).size.height - 180,
           left: MediaQuery.of(context).size.width / 2 - 28,
           child: FloatingButton(
             onTap: () {
