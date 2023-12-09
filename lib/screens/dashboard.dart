@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:grimorio/screens/components/button.dart';
 import 'package:grimorio/screens/home.dart';
+import 'package:grimorio/screens/login.dart';
 import 'package:grimorio/theme.dart';
 
 class Dashboard extends StatelessWidget {
@@ -30,7 +31,7 @@ class Dashboard extends StatelessWidget {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const Home(),
+                              builder: (context) => const Login(),
                             ));
                       },
                       cor: Colors.green,

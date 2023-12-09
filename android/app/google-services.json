@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "976314315966",
+    "project_id": "sg-ebook-library",
+    "storage_bucket": "sg-ebook-library.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:976314315966:android:8004953df5f268d342daef",
+        "android_client_info": {
+          "package_name": "com.example.grimorio"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNKPTDWsc21QCDa5LTzLxHEF8Xlb6Zrq4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:grimorio/screens/login.dart';
+import 'package:grimorio/screens/sign_up.dart';
 
 import '../controllers/book_controller.dart';
 import '../models/personal_book.dart';
@@ -17,7 +19,12 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  final BookController bookController = BookController();
+  int _currentIndex = 0;
+  final List<Widget> _pages = [
+    const _ScreenWrapper(),
+    const Login(),
+    const Login(),
+  ];
 
   @override
   void initState() {
@@ -30,32 +37,68 @@ class _HomeState extends State<Home> {
         child: Container(
       decoration: AppBackgroundProperties.boxDecoration,
       child: Scaffold(
-        appBar: AppBar(),
-        body: Center(
-          child: FutureBuilder(
-            future: bookController.getBooks(),
-            builder: (context, snapshot) {
-              switch (snapshot.connectionState) {
-                case ConnectionState.none:
-                  break;
-                case ConnectionState.waiting:
-                  return const CircularProgressIndicator();
-                case ConnectionState.active:
-                  break;
-                case ConnectionState.done:
-                  if (snapshot.hasData && snapshot.data!.isNotEmpty) {
-                    return _FilledHome(listPersonalBook: snapshot.data!);
-                  }
-                  break;
-                default:
-                  break;
-              }
-              return const _EmptyHome();
-            },
-          ),
-        ),
-      ),
+          bottomNavigationBar: BottomNavigationBar(
+              currentIndex: _currentIndex,
+              showUnselectedLabels: false,
+              onTap: (int index) {
+                setState(() {
+                  _currentIndex = index;
+                });
+              },
+              items: const [
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.chrome_reader_mode_outlined),
+                  label: 'Inicio',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.share),
+                  label: 'Compartilhar',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.person_2_rounded),
+                  label: 'Perfil',
+                ),
+              ]),
+          appBar: AppBar(),
+          body: _pages[_currentIndex]),
     ));
+  }
+}
+
+class _ScreenWrapper extends StatefulWidget {
+  const _ScreenWrapper();
+
+  @override
+  State<_ScreenWrapper> createState() => __ScreenWrapperState();
+}
+
+class __ScreenWrapperState extends State<_ScreenWrapper> {
+  final BookController bookController = BookController();
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: FutureBuilder(
+        future: bookController.getBooks(),
+        builder: (context, snapshot) {
+          switch (snapshot.connectionState) {
+            case ConnectionState.none:
+              break;
+            case ConnectionState.waiting:
+              return const CircularProgressIndicator();
+            case ConnectionState.active:
+              break;
+            case ConnectionState.done:
+              if (snapshot.hasData && snapshot.data!.isNotEmpty) {
+                return _FilledHome(listPersonalBook: snapshot.data!);
+              }
+              break;
+            default:
+              break;
+          }
+          return const _EmptyHome();
+        },
+      ),
+    );
   }
 }
 
@@ -81,7 +124,7 @@ class _FilledHomeState extends State<_FilledHome> {
             slivers: <Widget>[
               const SliverToBoxAdapter(
                 child: Padding(
-                  padding: EdgeInsets.fromLTRB(0.0, 16.0, 0.0, 8.0),
+                  padding: EdgeInsets.fromLTRB(0.0, 0, 0.0, 8.0),
                   child: DisplayText("Livros"),
                 ),
               ),
@@ -127,7 +170,7 @@ class _FilledHomeState extends State<_FilledHome> {
           ),
         ),
         Positioned(
-          top: MediaQuery.of(context).size.height - 180,
+          top: MediaQuery.of(context).size.height - 220,
           left: MediaQuery.of(context).size.width / 2 - 28,
           child: FloatingButton(
             onTap: () {

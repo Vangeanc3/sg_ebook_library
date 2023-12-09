@@ -22,7 +22,6 @@ class _LoginState extends State<Login> {
       child: Container(
         decoration: AppBackgroundProperties.boxDecoration,
         child: Scaffold(
-          backgroundColor: Colors.transparent,
           body: Center(
             child: SingleChildScrollView(
               child: Stack(
@@ -50,21 +49,26 @@ class _LoginState extends State<Login> {
                               Padding(
                                 padding: const EdgeInsets.only(bottom: 24.0),
                                 child: TextFormField(
-                                  style: InputDecorationProperties.textDecoration,
-                                  decoration: InputDecorationProperties.newInputDecoration("seuemail@dominio.com", "E-mail"),
+                                  style:
+                                      InputDecorationProperties.textDecoration,
+                                  decoration: InputDecorationProperties
+                                      .newInputDecoration(
+                                          "seuemail@dominio.com", "E-mail"),
                                   keyboardType: TextInputType.emailAddress,
                                 ),
                               ),
                               TextFormField(
                                 style: InputDecorationProperties.textDecoration,
-                                decoration: InputDecorationProperties.newInputDecoration("******", "Senha"),
+                                decoration: InputDecorationProperties
+                                    .newInputDecoration("******", "Senha"),
                                 obscureText: true,
                               ),
                               Padding(
                                 padding: const EdgeInsets.only(bottom: 28.0),
                                 child: TextButton(
                                   style: TextButton.styleFrom(
-                                      padding: const EdgeInsets.symmetric(vertical: 8.0)),
+                                      padding: const EdgeInsets.symmetric(
+                                          vertical: 8.0)),
                                   onPressed: () {},
                                   child: const Text(
                                     "Esqueci a senha",
@@ -73,21 +77,29 @@ class _LoginState extends State<Login> {
                                   ),
                                 ),
                               ),
-                              PrimaryButton(text: "Entrar", onTap: (){
-                                Navigator.push(context, MaterialPageRoute(builder: (context) => const Home()));
-                              }),
+                              PrimaryButton(
+                                  text: "Entrar",
+                                  onTap: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                const Home()));
+                                  }),
                               Padding(
                                 padding: const EdgeInsets.only(top: 8.0),
                                 child: TextButton(
                                   style: TextButton.styleFrom(
                                     fixedSize: const Size.fromWidth(246),
-                                    padding: const EdgeInsets.symmetric(vertical: 8.0),
+                                    padding: const EdgeInsets.symmetric(
+                                        vertical: 8.0),
                                   ),
                                   onPressed: () {
                                     Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                            builder: (context) => const Signup()));
+                                            builder: (context) =>
+                                                const Signup()));
                                   },
                                   child: Text(
                                     "Cadastre-se",
