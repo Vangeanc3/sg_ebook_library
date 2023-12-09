@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 abstract class AppColors {
   static Color white = const Color(0xffFFFFFF);
   static Color black = const Color(0xff000000);
@@ -15,12 +16,11 @@ abstract class AppColors {
     Color(0xff24001F),
     Color(0xffA02D91),
   ];
-  static List<Color> modalBackgroundGradient = const <Color> [
-    Color(0xFF10020E),
-    Color(0xFF10020E),
-    Color(0xFF4D1245),
+  static List<Color> modalBackgroundGradient = const <Color>[
+    Color(0xFFFFFFFF), // Branco
+    Color(0xFFF2F2F2),
   ];
-  static List<Color> homeShadowGradient = const <Color> [
+  static List<Color> homeShadowGradient = const <Color>[
     Color(0x00000000),
     Color(0xFF000000),
   ];
@@ -87,7 +87,10 @@ abstract class AppBackgroundProperties {
 
 abstract class ModalDecorationProperties {
   static TextStyle bookTitle = const TextStyle(fontSize: 22);
-  static TextStyle bookAuthor = TextStyle(fontSize: 16, color: AppColors.lightPink,);
+  static TextStyle bookAuthor = TextStyle(
+    fontSize: 16,
+    color: AppColors.lightPink,
+  );
   static RoundedRectangleBorder modalBorder = RoundedRectangleBorder(
     borderRadius: BorderRadius.circular(30),
     side: BorderSide(color: AppColors.stroke),
@@ -102,18 +105,21 @@ abstract class ModalDecorationProperties {
 }
 
 abstract class DisplayTextProperties {
-  static TextStyle textStyle = const TextStyle(fontFamily: "Bigelow Rules", fontSize: 36);
+  static TextStyle textStyle =
+      const TextStyle(fontFamily: "Bigelow Rules", fontSize: 36);
 }
 
 abstract class EntryDecorationProperties {
   static TextStyle displayText = const TextStyle(fontSize: 16);
-  static TextStyle authorText = TextStyle(fontWeight: FontWeight.w500, color: AppColors.lightPink);
+  static TextStyle authorText =
+      TextStyle(fontWeight: FontWeight.w500, color: AppColors.lightPink);
 }
 
 abstract class InputDecorationProperties {
   static TextStyle textDecoration = TextStyle(color: AppColors.mediumPink);
 
-  static InputDecoration newInputDecoration(String hintText, String labelText, [Icon? icon]) {
+  static InputDecoration newInputDecoration(String hintText, String labelText,
+      [Icon? icon]) {
     return InputDecoration(
       prefixIcon: icon,
       prefixIconColor: AppColors.mediumPink,

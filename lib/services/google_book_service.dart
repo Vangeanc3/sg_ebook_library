@@ -7,8 +7,9 @@ class GoogleBooksService {
   static const String baseUrl = "https://www.googleapis.com/books/v1/volumes";
 
   Future<List<GoogleBook>> searchBooks(String name) async {
-    if(name != "") {
-      http.Response httpResponse = await http.get(Uri.parse("$baseUrl/?q=$name"));
+    if (name != "") {
+      http.Response httpResponse =
+          await http.get(Uri.parse("$baseUrl/?q=$name"));
 
       Map<String, dynamic> response = json.decode(httpResponse.body);
       List listResponse = response["items"];
@@ -17,7 +18,6 @@ class GoogleBooksService {
       for (int i = 0; i < listResponse.length; i++) {
         listResult.add(GoogleBook.fromApi(listResponse[i]));
       }
-
       return listResult;
     }
     return List.empty();

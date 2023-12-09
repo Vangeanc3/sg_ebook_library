@@ -1,0 +1,86 @@
+{
+    "kind": "books#volume",
+    "id": "zqw4DwAAQBAJ",
+    "etag": "9u6/icj7NH0",
+    "selfLink": "https://www.googleapis.com/books/v1/volumes/zqw4DwAAQBAJ",
+    "volumeInfo": {
+        "title": "Introdução Ao Teste De Software",
+        "authors": [
+            "Marcio Delamaro",
+            "Mario Jino",
+            "José Maldonado"
+        ],
+        "publisher": "Elsevier Brasil",
+        "publishedDate": "2013-09-10",
+        "description": "<p>O primeiro objetivo deste livro é servir como livro-texto para disciplinas de cursos relacionados ao desenvolvimento de software como Ciência ou Engenharia da Computação e Sistemas de Informação.</p> <p>Acreditamos servir, também, como um texto introdutório para profissionais da área que necessitam de uma fonte de consulta e aprendizado.</p> <p>Neste livro, tal profissional poderá encontrar as informações básicas relativas às técnicas de teste, bem como formas de aplicá-las nos mais variados domínios e tipos de software.</p> <p>Em 2006, a Sociedade Brasileira de Computação (SBC) organizou o seminário Grandes Desafios da Computação, onde foram identificados os mais importantes temas relacionados à área para a próxima década. Dentre eles, está o desenvolvimento tecnológico de qualidade e, conseqüentemente, a disponibilização de sistemas corretos, confiáveis e seguros.</p> <p>Nota-se também que, nos últimos anos, a indústria de software, no Brasil e no resto do mundo, tem empregado cada vez mais recursos na busca pela qualidade de seus produtos e na redução de seus custos de desenvolvimento e manutenção.</p> <p>Além da demanda criada pelas principais companhias de desenvolvimento de software, nota-se uma acentuada carência de profissionais aptos a atuar na área de qualidade e, mais especificamente, de teste de software.</p> <p>Essas são apenas algumas razões que devem incentivar a leitura deste livro.</p> <p>Nele, procura-se apresentar as principais técnicas de teste de software, mostrando suas origens, evolução e tendências. Mostra, também, como essas técnicas vêm sendo aplicadas em domínios específicos como o desenvolvimento de software para a Web ou baseado em aspectos.</p> <p>Trata, ainda, de dois tópicos importantes e fortemente relacionados ao teste e qualidade de software que são: depuração e confiabilidade.</p> <p>Assim, a utilização deste livro é recomendada tanto na academia, onde pode ser empregado como livro-texto de cursos relacionados à Engenharia e Qualidade de Software, quanto na indústria, como um guia para aqueles desenvolvedores que desejem implementar técnicas que melhorem suas práticas de teste, e também para aqueles que estejam dispostos a assumir uma posição que vem ganhando cada vez mais importância nas organizações de software: a de testador.</p>",
+        "industryIdentifiers": [
+            {
+                "type": "ISBN_10",
+                "identifier": "8535267492"
+            },
+            {
+                "type": "ISBN_13",
+                "identifier": "9788535267495"
+            }
+        ],
+        "readingModes": {
+            "text": true,
+            "image": false
+        },
+        "pageCount": 408,
+        "printedPageCount": 433,
+        "printType": "BOOK",
+        "categories": [
+            "Computers / Software Development & Engineering / General"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "1.1.2.0.preview.2",
+        "panelizationSummary": {
+            "containsEpubBubbles": false,
+            "containsImageBubbles": false
+        },
+        "imageLinks": {
+            "smallThumbnail": "http://books.google.com/books/publisher/content?id=zqw4DwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&imgtk=AFLRE72jVnyeEZm6YJfkHqJbnjeQ6rD09lAXSrC7JKJ6BJkZi2mKb50-gnhvjaOOKXR4UQYRWvqHijvQP8oELHwAD2ltLvAITWyVQE3Lqco8y890DXyJjVcgWogHtJYFbRGVhSS6m8Bo&source=gbs_api",
+            "thumbnail": "http://books.google.com/books/publisher/content?id=zqw4DwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE735Jr5cpsAtkUvFhrxwQFGkgk30isYy64sxH_yFoBJMqiMsotsqIB5rIpITbARMy_dTCor12zQIPMEISxDm9g6QCANwQiaggpqnMA92u2h6qA6x-hzZlNpUFBHHTEy6YVhn5c7p&source=gbs_api",
+            "small": "http://books.google.com/books/publisher/content?id=zqw4DwAAQBAJ&printsec=frontcover&img=1&zoom=2&edge=curl&imgtk=AFLRE70PNE_cZBQyr7h47qA176X5bazwTTKHfJ0IWXSvuXfj2Y-apnA1HdxjGeV1baFTaQO-hbMwK9rL6oI2BEwt5xEBCNqmJ0T_DPdEZV5V1gVkokDBaF8N6M_9a81FzA-pUPKGNS0F&source=gbs_api",
+            "medium": "http://books.google.com/books/publisher/content?id=zqw4DwAAQBAJ&printsec=frontcover&img=1&zoom=3&edge=curl&imgtk=AFLRE71V2Ocs8U4XX4tx9GWqoP0l-U0xp0yYTwYva7d6aQDLMGu5XPhxUYKa1YHrgrz_RDlZkOtRHVaqgpyl1Ee5_wsp9ozHhNiU98tgWgYINPqpHiRn5NNRlzzEC98C8vMEvTcPUZ75&source=gbs_api",
+            "large": "http://books.google.com/books/publisher/content?id=zqw4DwAAQBAJ&printsec=frontcover&img=1&zoom=4&edge=curl&imgtk=AFLRE73nyT2uyVuemKcv8EePTJvEOy-Ve_pcrx8ZC3-thoXHG0htUDzYFFnKdFurtRZ-V59QqyXcoKBxDpELGYxUqOhiE4TGIfQTDfFP02wbFuoZUJ9QOJJKTeJo7Sf8YcBkb_yM-jnh&source=gbs_api",
+            "extraLarge": "http://books.google.com/books/publisher/content?id=zqw4DwAAQBAJ&printsec=frontcover&img=1&zoom=6&edge=curl&imgtk=AFLRE70PlSmGCeo94hDwIpXOZpx5bMdUD6df4J3OHQI1_5kztVaaQfKFFOOH66u4qzojRqbTgkG9-YeMGwU3Cm-jC2RVhQ4FAf1f63Fi8aB6LG5VcF5TMQ7XfEFvtr8wgLP0nRcaZPSK&source=gbs_api"
+        },
+        "language": "pt-BR",
+        "previewLink": "http://books.google.com.br/books?id=zqw4DwAAQBAJ&hl=&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=zqw4DwAAQBAJ&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=zqw4DwAAQBAJ"
+    },
+    "layerInfo": {
+        "layers": [
+            {
+                "layerId": "geo",
+                "volumeAnnotationsVersion": "3"
+            }
+        ]
+    },
+    "saleInfo": {
+        "country": "BR",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+    },
+    "accessInfo": {
+        "country": "BR",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+            "isAvailable": true,
+            "acsTokenLink": "http://books.google.com.br/books/download/Introdu%C3%A7%C3%A3o_Ao_Teste_De_Software-sample-epub.acsm?id=zqw4DwAAQBAJ&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "pdf": {
+            "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=zqw4DwAAQBAJ&hl=&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+    }
+}

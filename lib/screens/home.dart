@@ -30,7 +30,7 @@ class _HomeState extends State<Home> {
         child: Container(
       decoration: AppBackgroundProperties.boxDecoration,
       child: Scaffold(
-        backgroundColor: Colors.transparent,
+        // appBar: AppBar(),
         body: Center(
           child: FutureBuilder(
             future: bookController.getBooks(),
@@ -82,7 +82,7 @@ class _FilledHomeState extends State<_FilledHome> {
               const SliverToBoxAdapter(
                 child: Padding(
                   padding: EdgeInsets.fromLTRB(0.0, 48.0, 0.0, 8.0),
-                  child: DisplayText("Grimório"),
+                  child: DisplayText("Livros"),
                 ),
               ),
               SliverGrid.builder(
@@ -104,7 +104,7 @@ class _FilledHomeState extends State<_FilledHome> {
                       ),
                     ).then((value) async {
                       widget.listPersonalBook = await bookController.getBooks();
-                      setState(() { });
+                      // setState(() { });
                     });
                   },
                   child: Image.network(
@@ -149,7 +149,7 @@ class _EmptyHome extends StatelessWidget {
     return Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
       const Padding(
         padding: EdgeInsets.only(bottom: 32.0),
-        child: DisplayText("Grimório"),
+        child: DisplayText("SG Biblioteca"),
       ),
       Padding(
         padding: const EdgeInsets.only(bottom: 40.0),
@@ -158,11 +158,11 @@ class _EmptyHome extends StatelessWidget {
       Padding(
         padding: const EdgeInsets.only(bottom: 8.0),
         child: Text(
-          "Seu Grimório está vazio!",
+          "Sua Biblioteca está vazia!",
           style: TextStyle(
               fontFamily: "Bigelow Rules",
               fontSize: 36,
-              color: AppColors.lightPink),
+              color: AppColors.darkPurple),
         ),
       ),
       const Padding(

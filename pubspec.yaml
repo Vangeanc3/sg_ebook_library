@@ -16,6 +16,8 @@ dependencies:
   sqflite: ^2.2.8+4
   flutter_svg: ^2.0.7
   http: ^1.1.0
+  webview_flutter: ^4.2.2
+  webview_flutter_android: ^3.9.0
 
 dev_dependencies:
   flutter_test:
@@ -32,13 +34,7 @@ flutter:
   #   - images/a_dot_ham.jpeg
 
   assets:
-    - assets/images/star_icon.svg
-    - assets/images/alternative_star_icon.svg
-    - assets/images/background.svg
-    - assets/images/logo.svg
-    - assets/images/grimorio.png
-    - assets/images/more_stars.svg
-    - assets/images/grimorio_empty.svg
+    - assets/images/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:grimorio/screens/components/floating_button.dart';
+import 'package:grimorio/screens/previa_web.dart';
 
 import '../controllers/book_controller.dart';
 import '../models/personal_book.dart';
@@ -152,27 +154,44 @@ class _BookDetailsState extends State<BookDetails> {
                       ],
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 8.0),
-                    child: PrimaryButtonIcon(
-                      icon: Icons.edit,
-                      text: "Editar",
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => EditDetails(
-                                      book: widget.book,
-                                    ))).then((value) {
-                          setState(() {
-                            if (value != null) {
-                              widget.book = value;
-                            }
-                          });
+                  PrimaryButtonIcon(
+                    icon: Icons.remove_red_eye,
+                    text: "Ver Prévia",
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => PreviaWeb(
+                                    link: widget.book.googleBook.previewLink,
+                                  ))).then((value) {
+                        setState(() {
+                          if (value != null) {
+                            widget.book = value;
+                          }
                         });
-                      },
-                    ),
+                      });
+                    },
                   ),
+                  const SizedBox(height: 8),
+                  PrimaryButtonIcon(
+                    icon: Icons.edit,
+                    text: "Editar",
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => EditDetails(
+                                    book: widget.book,
+                                  ))).then((value) {
+                        setState(() {
+                          if (value != null) {
+                            widget.book = value;
+                          }
+                        });
+                      });
+                    },
+                  ),
+                  const SizedBox(height: 8),
                   Padding(
                     padding: const EdgeInsets.only(bottom: 16.0),
                     child: SecondaryButton(
