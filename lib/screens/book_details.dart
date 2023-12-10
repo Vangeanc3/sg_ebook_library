@@ -192,21 +192,25 @@ class _BookDetailsState extends State<BookDetails> {
                     },
                   ),
                   const SizedBox(height: 8),
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 16.0),
-                    child: SecondaryButton(
-                      icon: Icons.delete,
-                      text: "Excluir",
-                      onTap: () {
-                        bookController.removeBook(widget.book);
-                        Navigator.pushAndRemoveUntil(
-                          context,
-                          MaterialPageRoute(builder: (context) => const Home()),
-                          (_) => false,
-                        );
-                      },
-                    ),
+                  SecondaryButton(
+                    icon: Icons.delete,
+                    text: "Excluir",
+                    onTap: () {
+                      bookController.removeBook(widget.book);
+                      Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(builder: (context) => const Home()),
+                        (_) => false,
+                      );
+                    },
                   ),
+                  const SizedBox(height: 8),
+                  SecondaryButton(
+                    icon: Icons.share,
+                    text: "Compartilhar",
+                    onTap: () {},
+                  ),
+                  const SizedBox(height: 16),
                 ],
               ),
             ),

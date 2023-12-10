@@ -1,10 +1,10 @@
-import 'package:asyncstate/class/async_class.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:grimorio/firebase_options.dart';
 import 'package:grimorio/repositories/user_repository.dart';
-import 'package:grimorio/screens/components/my_loading.dart';
 import 'package:grimorio/screens/dashboard.dart';
+import 'package:grimorio/screens/home.dart';
 import 'package:provider/provider.dart';
 
 void main() async {
@@ -14,26 +14,38 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
-  AsyncState.setLoaderPersonalized(
-    defaultLoaderWidget: const MyLoading(),
-  );
+  bool isLogged = verifyLogged();
 
-  runApp(MultiProvider(providers: [
-    ChangeNotifierProvider(
-      create: (context) => UserRepository(),
-    )
-  ], child: const Grimorio()));
+  runApp(MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => UserRepository(),
+        )
+      ],
+      child: (Grimorio(
+        isLogged: isLogged,
+      ))));
 }
 
 class Grimorio extends StatelessWidget {
-  const Grimorio({super.key});
+  final bool isLogged;
+  const Grimorio({super.key, required this.isLogged});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "Grimório",
+      title: "SG Biblioteca",
       theme: ThemeData.light(useMaterial3: true),
-      home: const Dashboard(),
+      home: (isLogged) ? const Home() : const Dashboard(),
     );
   }
+}
+
+bool verifyLogged() {
+  User? currentUser = FirebaseAuth.instance.currentUser;
+
+  if (currentUser == null) {
+    return false;
+  }
+  return true;
 }

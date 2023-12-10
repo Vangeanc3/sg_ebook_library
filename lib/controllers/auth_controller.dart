@@ -1,27 +1,24 @@
-import 'package:asyncstate/mixin/asyncstate_mixing.dart';
-import 'package:eetepa_app_frontend/src/models/user.dart';
-import 'package:eetepa_app_frontend/src/services/auth_service.dart';
-import 'package:eetepa_app_frontend/src/services/register_service.dart';
 import 'package:flutter/widgets.dart';
+import 'package:grimorio/models/user.dart';
+import 'package:grimorio/services/auth_service.dart';
 
-class AuthController with AsyncStateMixin {
+class AuthController {
   final authService = AuthService();
 
   Future<String?> signUp(User user, BuildContext context) async {
-    final registerService = RegisterService();
-    return await callAsyncLoader(registerService.register(user, context));
+    return await authService.signUp(user, context);
   }
 
   Future<String?> signIn(String email, String senha) async {
-    return await callAsyncLoader(authService.signIn(email, senha));
+    return await authService.signIn(email, senha);
   }
 
   Future<String?> signOut() async {
-    return await callAsyncLoader(authService.signOut());
+    return await authService.signOut();
   }
 
   Future<String?> resetPassword({required String email}) async {
-    return await callAsyncLoader(authService.resetPassword(email));
+    return await authService.resetPassword(email);
   }
 
   Future<String?> deleteAccount() async {

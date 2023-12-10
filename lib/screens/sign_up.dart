@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:grimorio/screens/components/display_text.dart';
+import 'package:grimorio/controllers/auth_controller.dart';
+import 'package:grimorio/models/user.dart';
+import 'package:grimorio/screens/components/button.dart';
 import 'package:grimorio/screens/components/primary_button.dart';
+import 'package:grimorio/screens/components/show_snack_bar.dart';
+import 'package:grimorio/screens/home.dart';
 import 'package:grimorio/theme.dart';
+import 'package:uuid/uuid.dart';
 
 class Signup extends StatefulWidget {
   const Signup({super.key});
@@ -11,21 +16,44 @@ class Signup extends StatefulWidget {
 }
 
 class _SignupState extends State<Signup> {
+  final authController = AuthController();
   final _formKey = GlobalKey<FormState>();
+  final nameController = TextEditingController();
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+
+  register() {
+    final user = User(
+      id: const Uuid().v1(),
+      name: nameController.text,
+      email: emailController.text,
+      password: passwordController.text,
+    );
+
+    authController.signUp(user, context).then((String? error) {
+      if (error != null) {
+        showSnackBar(context: context, message: error, isError: true);
+      } else {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => const Home()));
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(child: Container(
+    return SafeArea(
+        child: Container(
       decoration: AppBackgroundProperties.boxDecoration,
       child: Scaffold(
-        backgroundColor: Colors.transparent,
+        appBar: AppBar(
+          centerTitle: true,
+          title: const Text('Cadastre-se'),
+        ),
         body: Center(
           child: SingleChildScrollView(
-            child: Column(children: <Widget>[
-              const Padding(
-                padding: EdgeInsets.only(bottom: 16.0),
-                child: DisplayText("Cadastre-se"),
-              ),
+            child: Column(
+              children: <Widget>[
                 SizedBox(
                   width: 246,
                   child: Form(
@@ -36,6 +64,13 @@ class _SignupState extends State<Signup> {
                         Padding(
                           padding: const EdgeInsets.only(bottom: 24.0),
                           child: TextFormField(
+                            validator: (value) {
+                              if (value == null || value.length < 4) {
+                                return "Insira um nome válido.";
+                              }
+                              return null;
+                            },
+                            controller: nameController,
                             style: InputDecorationProperties.textDecoration,
                             decoration:
                                 InputDecorationProperties.newInputDecoration(
@@ -46,6 +81,13 @@ class _SignupState extends State<Signup> {
                         Padding(
                           padding: const EdgeInsets.only(bottom: 24.0),
                           child: TextFormField(
+                            validator: (value) {
+                              if (value == null || value.length < 4) {
+                                return "Insira um e-mail válido.";
+                              }
+                              return null;
+                            },
+                            controller: emailController,
                             style: InputDecorationProperties.textDecoration,
                             decoration:
                                 InputDecorationProperties.newInputDecoration(
@@ -56,6 +98,13 @@ class _SignupState extends State<Signup> {
                         Padding(
                           padding: const EdgeInsets.only(bottom: 16.0),
                           child: TextFormField(
+                            validator: (value) {
+                              if (value == null || value.length < 4) {
+                                return "Insira uma senha válida.";
+                              }
+                              return null;
+                            },
+                            controller: passwordController,
                             style: InputDecorationProperties.textDecoration,
                             decoration:
                                 InputDecorationProperties.newInputDecoration(
@@ -63,7 +112,16 @@ class _SignupState extends State<Signup> {
                             obscureText: true,
                           ),
                         ),
-                        PrimaryButton(text: "Cadastrar", onTap: () {}),
+                        Button(
+                          text: "Cadastrar",
+                          function: () {
+                            if (_formKey.currentState!.validate()) {
+                              register();
+                            }
+                          },
+                          cor: Colors.green,
+                          corTexto: Colors.white,
+                        ),
                         Padding(
                           padding: const EdgeInsets.only(top: 8.0),
                           child: TextButton(
@@ -75,10 +133,9 @@ class _SignupState extends State<Signup> {
                             onPressed: () {
                               Navigator.pop(context);
                             },
-                            child: Text(
+                            child: const Text(
                               "Fazer login",
                               style: TextStyle(
-                                color: AppColors.white,
                                 fontSize: 15,
                                 decoration: TextDecoration.underline,
                               ),

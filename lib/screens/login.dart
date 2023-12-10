@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:grimorio/screens/components/display_text.dart';
+import 'package:grimorio/controllers/auth_controller.dart';
+import 'package:grimorio/screens/components/button.dart';
+import 'package:grimorio/screens/components/show_snack_bar.dart';
 import 'package:grimorio/screens/home.dart';
-import 'package:grimorio/screens/components/primary_button.dart';
 import 'package:grimorio/screens/sign_up.dart';
 import 'package:grimorio/theme.dart';
 
@@ -14,7 +15,21 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  final authController = AuthController();
+  var userController = TextEditingController();
+  var passwordController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
+
+  login(String email, String senha) {
+    authController.signIn(email, senha).then((String? error) {
+      if (error != null) {
+        showSnackBar(context: context, message: error, isError: true);
+      } else {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => const Home()));
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,22 +37,22 @@ class _LoginState extends State<Login> {
       child: Container(
         decoration: AppBackgroundProperties.boxDecoration,
         child: Scaffold(
+          appBar: AppBar(
+            centerTitle: true,
+            title: const Text('Login'),
+          ),
           body: Center(
             child: SingleChildScrollView(
               child: Stack(
                 alignment: Alignment.bottomCenter,
                 children: <Widget>[
-                  SvgPicture.asset("assets/images/more_stars.svg"),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       const Padding(
-                        padding: EdgeInsets.only(bottom: 40.0),
-                        child: DisplayText("Login"),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(bottom: 24.0),
-                        child: Image.asset("assets/images/grimorio.png"),
+                        padding: EdgeInsets.symmetric(horizontal: 64),
+                        child: Image(
+                            image: AssetImage('assets/images/livro.jpeg')),
                       ),
                       SizedBox(
                         width: 246,
@@ -49,6 +64,13 @@ class _LoginState extends State<Login> {
                               Padding(
                                 padding: const EdgeInsets.only(bottom: 24.0),
                                 child: TextFormField(
+                                  validator: (value) {
+                                    if (value == null || value.length < 4) {
+                                      return "Insira um e-mail válido.";
+                                    }
+                                    return null;
+                                  },
+                                  controller: userController,
                                   style:
                                       InputDecorationProperties.textDecoration,
                                   decoration: InputDecorationProperties
@@ -58,56 +80,49 @@ class _LoginState extends State<Login> {
                                 ),
                               ),
                               TextFormField(
+                                validator: (value) {
+                                  if (value == null || value.length < 4) {
+                                    return "Insira uma senha válida.";
+                                  }
+                                  return null;
+                                },
+                                controller: passwordController,
                                 style: InputDecorationProperties.textDecoration,
                                 decoration: InputDecorationProperties
                                     .newInputDecoration("******", "Senha"),
                                 obscureText: true,
                               ),
-                              Padding(
-                                padding: const EdgeInsets.only(bottom: 28.0),
-                                child: TextButton(
-                                  style: TextButton.styleFrom(
-                                      padding: const EdgeInsets.symmetric(
-                                          vertical: 8.0)),
-                                  onPressed: () {},
-                                  child: const Text(
-                                    "Esqueci a senha",
-                                    style: TextStyle(
-                                        decoration: TextDecoration.underline),
-                                  ),
-                                ),
+                              const SizedBox(height: 16),
+                              Button(
+                                text: "Entrar",
+                                corTexto: Colors.white,
+                                cor: Colors.green,
+                                function: () {
+                                  if (_formKey.currentState!.validate()) {
+                                    login(userController.text,
+                                        passwordController.text);
+                                  }
+                                },
                               ),
-                              PrimaryButton(
-                                  text: "Entrar",
-                                  onTap: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                const Home()));
-                                  }),
-                              Padding(
-                                padding: const EdgeInsets.only(top: 8.0),
-                                child: TextButton(
-                                  style: TextButton.styleFrom(
-                                    fixedSize: const Size.fromWidth(246),
-                                    padding: const EdgeInsets.symmetric(
-                                        vertical: 8.0),
-                                  ),
-                                  onPressed: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                const Signup()));
-                                  },
-                                  child: Text(
-                                    "Cadastre-se",
-                                    style: TextStyle(
-                                      color: AppColors.white,
-                                      fontSize: 15,
-                                      decoration: TextDecoration.underline,
-                                    ),
+                              const SizedBox(height: 8),
+                              TextButton(
+                                style: TextButton.styleFrom(
+                                  fixedSize: const Size.fromWidth(246),
+                                  padding:
+                                      const EdgeInsets.symmetric(vertical: 8.0),
+                                ),
+                                onPressed: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              const Signup()));
+                                },
+                                child: const Text(
+                                  "Cadastre-se",
+                                  style: TextStyle(
+                                    fontSize: 15,
+                                    decoration: TextDecoration.underline,
                                   ),
                                 ),
                               ),

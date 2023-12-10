@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:grimorio/screens/components/button.dart';
-import 'package:grimorio/screens/home.dart';
 import 'package:grimorio/screens/login.dart';
 import 'package:grimorio/theme.dart';
 

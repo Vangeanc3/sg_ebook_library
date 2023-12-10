@@ -1,8 +1,7 @@
-import 'package:eetepa_app_frontend/src/services/user_service.dart';
-import 'package:eetepa_app_frontend/src/models/user.dart' as my_user;
-import 'package:eetepa_app_frontend/src/shared/repositories/user_repository.dart';
+import 'package:grimorio/models/user.dart' as my_user;
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/widgets.dart';
+import 'package:grimorio/repositories/user_repository.dart';
 import 'package:grimorio/services/user_service.dart';
 import 'package:provider/provider.dart';
 
