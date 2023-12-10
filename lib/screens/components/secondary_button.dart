@@ -23,6 +23,7 @@ class SecondaryButton extends StatelessWidget {
           children: <Widget>[
             Padding(
               padding: const EdgeInsets.only(right: 8.0),
+              // ignore: deprecated_member_use
               child: SvgPicture.asset(stars, color: Colors.black),
             ),
             icon != null
@@ -42,6 +43,7 @@ class SecondaryButton extends StatelessWidget {
               padding: const EdgeInsets.only(left: 8.0),
               child: SvgPicture.asset(
                 stars,
+                // ignore: deprecated_member_use
                 color: Colors.black,
               ),
             ),

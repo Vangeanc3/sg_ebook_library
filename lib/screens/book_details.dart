@@ -13,9 +13,10 @@ import 'components/secondary_button.dart';
 import 'edit_details.dart';
 import 'home.dart';
 
+// ignore: must_be_immutable
 class BookDetails extends StatefulWidget {
-  BookDetails({super.key, required this.book});
   PersonalBook book;
+  BookDetails({super.key, required this.book});
 
   @override
   State<BookDetails> createState() => _BookDetailsState();

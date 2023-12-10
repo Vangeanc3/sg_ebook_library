@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:grimorio/screens/components/menu_drawer.dart';
-import 'package:grimorio/screens/login.dart';
 import 'package:grimorio/screens/share_books.dart';
-import 'package:grimorio/screens/sign_up.dart';
 
 import '../controllers/book_controller.dart';
 import '../models/personal_book.dart';
@@ -112,6 +110,7 @@ class __ScreenWrapperState extends State<_ScreenWrapper> {
   }
 }
 
+// ignore: must_be_immutable
 class _FilledHome extends StatefulWidget {
   _FilledHome({required this.listPersonalBook});
 

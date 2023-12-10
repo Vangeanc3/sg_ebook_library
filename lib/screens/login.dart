@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:grimorio/controllers/auth_controller.dart';
 import 'package:grimorio/screens/components/button.dart';
 import 'package:grimorio/screens/components/show_snack_bar.dart';
