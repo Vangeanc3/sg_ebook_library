@@ -8,6 +8,10 @@ class UserController {
     return await userService.createUser(user: user);
   }
 
+  Future<List<User>> getUsers() async {
+    return await userService.getUsers();
+  }
+
   Future<User?> getUser(String uid) async {
     return await userService.getUser(uid);
   }

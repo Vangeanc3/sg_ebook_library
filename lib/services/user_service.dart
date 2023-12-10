@@ -8,6 +8,19 @@ class UserService {
     await firestore.collection('Users').doc(user.id).set(user.toMap());
   }
 
+  Future<List<User>> getUsers() async {
+    List<User> temp = [];
+
+    QuerySnapshot<Map<String, dynamic>> snapshot =
+        await firestore.collection('Users').get();
+
+    for (var doc in snapshot.docs) {
+      temp.add(User.fromMap(doc.data()));
+    }
+
+    return temp;
+  }
+
   Future<User?> getUser(String uid) async {
     DocumentSnapshot<Map<String, dynamic>> snapshot =
         await firestore.collection('Users').doc(uid).get();

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:grimorio/controllers/auth_controller.dart';
 import 'package:grimorio/models/user.dart';
 import 'package:grimorio/screens/components/button.dart';
-import 'package:grimorio/screens/components/primary_button.dart';
 import 'package:grimorio/screens/components/show_snack_bar.dart';
 import 'package:grimorio/screens/home.dart';
 import 'package:grimorio/theme.dart';
@@ -34,8 +33,10 @@ class _SignupState extends State<Signup> {
       if (error != null) {
         showSnackBar(context: context, message: error, isError: true);
       } else {
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => const Home()));
+        Navigator.pushAndRemoveUntil(
+            context,
+            MaterialPageRoute(builder: (context) => const Home()),
+            (route) => false);
       }
     });
   }

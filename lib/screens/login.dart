@@ -25,8 +25,10 @@ class _LoginState extends State<Login> {
       if (error != null) {
         showSnackBar(context: context, message: error, isError: true);
       } else {
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => const Home()));
+        Navigator.pushAndRemoveUntil(
+            context,
+            MaterialPageRoute(builder: (context) => const Home()),
+            (route) => false);
       }
     });
   }

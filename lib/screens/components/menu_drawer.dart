@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:grimorio/colors_schemes.dart';
 import 'package:grimorio/controllers/auth_controller.dart';
 import 'package:grimorio/screens/components/show_snack_bar.dart';
+import 'package:grimorio/screens/dashboard.dart';
 
 class MenuDrawer extends StatelessWidget {
   const MenuDrawer({super.key});
@@ -17,7 +18,12 @@ class MenuDrawer extends StatelessWidget {
         if (error != null) {
           showSnackBar(context: context, message: error, isError: true);
         } else {
-          Navigator.pushReplacementNamed(context, '/welcome');
+          Navigator.pushAndRemoveUntil(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const Dashboard(),
+              ),
+              (route) => false);
         }
       });
     }
